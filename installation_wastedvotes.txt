@@ -1,0 +1,39 @@
+A quick and dirty overview of how to get the site up and running.
+
+I have worked on this site via both LAMP in Linux and AMPPS in Windows. So the site requires
+
+Apache 
+MySQL
+PHP
+
+Most recently this site has been tested with:
+
+Apache 2.4.23
+MySQL 5.6.31
+PHP 5.5.38
+
+DATABASE SETUP:
+
+Create the following databases in MySQL
+drupal
+elections_dev (optional)
+elections_test (optional)
+elections_prod
+
+Import the included drupal_*.sql file in the root of this project into the drupal databases
+Import the included elections*sql file in the root of this project into the elections_* databases
+
+DATABASE USER:
+
+This version of the site has the assumption that it will be making use of the root user to access the website with the default password 'mysql'
+
+Please consider changing this to your own created user that is given all access priviledges to the databases created in the DATABASE SETUP section.
+
+
+CODE SETUP:
+
+Make the wastedvotes website available in your www directory.
+
+Change the drupal/sites/settings.php file and the login.inc file in PHP to use the appropriate DATABASE user and password.
+
+And it should just work! No guarantees!

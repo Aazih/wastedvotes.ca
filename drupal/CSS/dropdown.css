@@ -1,0 +1,23 @@
+select {
+	text-align:center;
+}
+select#edit-district-field {
+}
+select#edit-province-field {
+}
+select#edit-election-field {
+}
+div.submit-box {
+}
+div#electiondropbox {
+	float: left;
+}
+div#regiondropbox {
+	float: left;
+}
+div#provincedropbox {
+	float: right;
+}
+div#districtdropbox {
+	float: right;
+}

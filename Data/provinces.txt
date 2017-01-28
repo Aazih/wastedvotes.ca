@@ -1,0 +1,13 @@
+Newfoundland and Labrador/Terre-Neuve-et-Labrador|N.L./T.-N.-L.|NL
+Prince Edward Island/Île-du-Prince-Édouard|P.E.I./Î.-P.-É.|PE
+Nova Scotia/Nouvelle-Écosse|N.S./N.-É.|NS
+New Brunswick/Nouveau-Brunswick|N.B./N.-B.|NB
+Quebec/Québec|Que./Qc|QC
+Ontario|Ont.|ON
+Manitoba|Man.|MB
+Saskatchewan|Sask.|SK
+Alberta|Alta./Alb.|AB
+British Columbia/Colombie-Britannique|B.C./C.-B.|BC
+Yukon|Y.T./Yn|YT
+Northwest Territories/Territoires du Nord-Ouest|N.W.T./T.N.-O.|NT
+Nunavut|Nun./Nt|NU

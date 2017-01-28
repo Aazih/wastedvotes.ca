@@ -1,0 +1,28 @@
+British Columbia Youth Coalition,BC8F8F,BCYC
+Bloc British Columbia Party,87CEFA,BLOC
+British Columbia Conservative Party,6495ED,CP
+British Columbia Liberal Party,F08080,LIB
+British Columbia Libertarian Party,008000,LBN
+British Columbia Marijuana Party,D2B48C,BCM
+British Columbia Party,87CEFA,BCP
+British Columbia Patriot Party,DA70D6,BCPA
+British Columbia Social Credit Party,ADD8E6,SC
+British Columbia Unity Party,48D1CC,UPBC
+Communist Party of British Columbia,FF6347,COMM
+Democratic Reform British Columbia,DB7093,DRBC
+Emerged Democracy Party of British Columbia,000077,EDBC
+Freedom Party of British Columbia,3333CC,FREE
+Green Party of British Columbia,9ACD32,GP
+Moderates,FFFFCC,MDM
+New Democratic Party of British Columbia,F4A460,NDP
+People’s Front,CD5C5C,PF
+The Platinum Party,F0F0F0,PLAT
+Reform Party of British Columbia,00BFFF,RP
+The Sex Party,FF69B4,SEX
+Western Canada Concept Party of British Columbia,F0E68C,WCC
+Western Refederation Party of British Columbia,FFFF99,REFD
+Work Less Party of British Columbia,FF3366,WLP
+Your Political Party of British Columbia,60AC66,YPBC
+Nation Alliance Party,FFFF00,NAP
+Independent,736F6E,IND
+No Affiliation,736F6E,NA

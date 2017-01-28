@@ -1,0 +1,56 @@
+function showFive(){
+	hidediv('overFiftyTable');
+	showdiv('topFiveTable');
+}
+
+function showFifty(){
+	hidediv('topFiveTable');
+	showdiv('overFiftyTable');
+}
+
+function showFull(){
+	hidediv('statsTable');
+	showdiv('statsTableFull');
+}
+
+function showNormal(){
+	hidediv('statsTableFull');
+	showdiv('statsTable');
+}
+function hideallids(){
+	//loop through the array and hide each element by id
+	for (var i=0;i<ids.length;i++){
+		hidediv(ids[i]);
+	}		  
+}
+
+function hidediv(id) {
+	//safe function to hide an element with a specified id
+	if (document.getElementById) { // DOM3 = IE5, NS6
+		document.getElementById(id).style.display = 'none';
+	}
+	else {
+		if (document.layers) { // Netscape 4
+			document.id.display = 'none';
+		}
+		else { // IE 4
+			document.all.id.style.display = 'none';
+		}
+	}
+}
+
+function showdiv(id) {
+	//safe function to show an element with a specified id
+		  
+	if (document.getElementById) { // DOM3 = IE5, NS6
+		document.getElementById(id).style.display = '';
+	}
+	else {
+		if (document.layers) { // Netscape 4
+			document.id.display = '';
+		}
+		else { // IE 4
+			document.all.id.style.display = '';
+		}
+	}
+}

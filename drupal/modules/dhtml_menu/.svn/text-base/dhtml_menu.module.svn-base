@@ -1,0 +1,106 @@
+<?php
+// $Id: dhtml_menu.module,v 1.5 2006/12/09 22:12:11 merlinofchaos Exp $
+/** 
+ * DHTML menus
+ *
+ * Allow click expansion of the menu tree via javascript, with 
+ * graceful degradation.
+ */
+
+/**
+ * Basically a copy of menu_block() -- we're providing our own version
+ * of each menu.
+ */
+function dhtml_menu_block($op = 'list', $delta = 0) {
+  if ($op == 'list') {
+    $blocks = array();
+    $root_menus = menu_get_root_menus();
+    foreach ($root_menus as $mid => $title) {
+      $blocks[$mid]['info'] = t('DHTML: ') . $title;
+    }
+    return $blocks;
+  }
+  else if ($op == 'view') {
+    $item = menu_get_item($delta);
+    $data['subject'] = check_plain($item['title']);
+    $data['content'] = theme('dhtml_menu_tree', $delta);
+    return $data;
+  }
+}
+
+// Manual process: Provide all menus that are both parent menus and have
+// important content. This adds a pseudo menu item as the first item in
+// the container, and lets you rename it too.
+
+// note: replace this with something set from the UI.
+function _get_add_links() {
+  return array(
+    'admin' => t('Administer'), 
+  );
+}
+function theme_dhtml_menu_item($mid, $children = '', $leaf = TRUE) {
+  static $expanded = NULL;
+  if (!is_array($expanded)) {
+    $expanded = explode(',', $_COOKIE['dhtml_menu']);
+  }
+  if ($mid == menu_get_active_nontask_item()) {
+    $active = " active";
+  }
+  if ($leaf) {
+    return "  <li class=\"leaf$active\">" . menu_item_link($mid) . "</li>\n";
+  }
+  else {
+    $menu = menu_get_menu();
+
+    $type = isset($menu['visible'][$mid]['type']) ? $menu['visible'][$mid]['type'] : NULL;
+    if (menu_in_active_trail($mid) || ($type & MENU_EXPANDED) || in_array("sub$mid", $expanded)) {
+      $state = 'expanded';
+    }
+    else {
+      $state = 'collapsed';
+      $display = 'style="display: none;"';
+    }
+
+    $output = "<li class=\"menutitle $state\" id = \"menu-sub$mid\" >";
+    $output .= menu_item_link($mid);
+    $output .= "<span class='submenu' id='sub$mid' $display>\n";
+    $output .= "$children\n</span>\n";
+    $output .= "</li>\n";
+    return $output;
+  }
+}
+
+/*
+function dhtml_menu_item_link($item, $link_item) {
+  $add_links = _get_add_links();
+  $title = ($link_item['path'] && $add_links[$link_item['path']] ? $add_links[$link_item['path']] : $item['title']);
+  return l($title, $link_item['path'], isset($item['description']) ? array('title' => $item['description']) : array());
+}
+*/
+function dhtml_menu_tree($pid = 1) {
+  $menu = menu_get_menu();
+  $output = '';
+
+  if (isset($menu['visible'][$pid]) && $menu['visible'][$pid]['children']) {
+    foreach ($menu['visible'][$pid]['children'] as $mid) {
+      $output .= theme('dhtml_menu_item', $mid, theme('dhtml_menu_tree', $mid, false), count($menu['visible'][$mid]['children']) == 0);
+    }
+  }
+  return $output;
+}
+
+function theme_dhtml_menu_tree($pid = 1, $toplevel = true) {
+  if ($tree = dhtml_menu_tree($pid)) {
+    $add_links = _get_add_links();
+    $menu = menu_get_menu();
+    if ($add_links[$menu['items'][$pid]['path']]) {
+      $tree = "<li class='leaf'>" . menu_item_link($pid) . "</li>\n" . $tree;
+    }
+
+    if ($toplevel) {
+      $path = drupal_get_path('module', 'dhtml_menu');
+      drupal_add_js("$path/dhtml_menu.js");
+    }
+    return "\n<ul class=\"menu\">\n". $tree ."\n</ul>\n";
+  }
+}

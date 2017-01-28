@@ -1,0 +1,8 @@
+; $Id: dhtml_menu.info,v 1.1 2006/12/09 19:42:54 merlinofchaos Exp $
+description = "Adds new menus with DHTML to reduce page refreshes"
+name = "DHTML Menus"
+
+; Information added by drupal.org packaging script on 2006-12-09
+version = "5.x-0.6"
+project = "dhtml_menu"
+

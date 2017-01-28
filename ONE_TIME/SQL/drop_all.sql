@@ -1,0 +1,13 @@
+drop table contest;
+drop table region_districts;
+drop table region_parliament;
+drop table region;
+drop table districts;
+drop table ontario_38_party_trans;
+drop table parliament;
+drop table parliament_type;
+drop table party;
+drop table party_leader;
+drop table party_trans_39;
+drop table province;
+drop table pic_resource;
