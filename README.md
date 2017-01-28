@@ -1,3 +1,5 @@
+##Introduction
+
 Greetings to anyone interested in reading this.
 
 I created wastedvotes.ca back in 2007 to highlight the sheer number of votes that do not result in representation in a typical Canadian, or indeed any, FPTP election. 
@@ -6,7 +8,7 @@ In the time since it has become harder and harder for the Canadian political eli
 
 That's enough of the intro. Read on for an overview of how the site works and the contents of this project.
 
-Folders:
+##Folders
 
 Data - This might the most useful to people interested in Canadian election data. The folder contains the raw data, in csv format, of all the elections tracked on the site. Earlier on I used to write code to parse the different data formats that each province and the federal government provide their election result data in. Later on I have settled on a fairly typical data format that I convert election data into and use a general script to parse and insert into the database. Both of these approaches have advantages and drawbacks. In the end massaging data into a standard format is far more feasible than mainpulating code however. The format that Elections Nova Scotia uses to dissmeninate elections results data is beyond horrific for example and I am not interested in writing and debugging code to acccommadate that travesty.
 
@@ -40,4 +42,3 @@ SCHEMA - This folder contains the sql that creates the relational database table
     CONTEST is where the election results actually are. Each row in CONTEST tracks the number of votes a candidate receieved in a district that is for a parliament. One irritating issue in my database design is that I avoided redundancy just a bit too much by not putting the PARLIAMENT_ID of the district in this table instead keeping that information just in the DISTRICT table. This means any query to get the results for any parliament needs to join to DISTRICTS. Since the information in this database is updated only occassionally but queried far more commonly this is not a great design. I could fix this but WHO HAS THE TIME FOR THAT?
 
     REGION Is an optional geographic grouping of Districts within a province. It's incredibly useful but it's not easy to come up with regional groupings as they are not formally defined divisions but arbitrary ones. fs
-
