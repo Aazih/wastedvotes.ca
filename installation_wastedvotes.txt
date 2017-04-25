@@ -5,6 +5,7 @@ I have worked on this site via both LAMP in Linux and AMPPS in Windows. So the s
 Apache 
 MySQL
 PHP
+Drupal 5.2
 
 Most recently this site has been tested with:
 
@@ -31,6 +32,8 @@ Please consider changing this to your own created user that is given all access 
 
 
 CODE SETUP:
+
+Install Drupal v5.2
 
 Make the wastedvotes website available in your www directory.
 
